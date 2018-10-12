@@ -1,0 +1,41 @@
+.header {
+  background: url(https://images.pexels.com/photos/220116/pexels-photo-220116.jpeg?cs=srgb&dl=autumn-background-board-220116.jpg&fm=jpg);
+  background-size: auto;
+  min-height: 10vh;
+  max-height: 10vh;
+  min-width: 100vw;
+  position: fixed;
+  z-index: 1;
+}
+.header .header__dropdown {
+  min-width: 10vw;
+  max-width: 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 1.2rem;
+}
+.header .header__dropdown .dropdown__title {
+  z-index: 2;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 5rem;
+  background: #262216;
+  color: #b0a18e;
+}
+.header .header__dropdown .dropdown__title:hover {
+  cursor: pointer;
+  filter: brightness(150%);
+}
+.header .header__dropdown .dropdown__item {
+  position: absolute;
+  min-height: 2rem;
+  max-height: 2rem;
+  padding: 1rem;
+  margin: 1rem;
+}
+.header .header__dropdown .dropdown__item--hidden {
+  display: none;
+}
