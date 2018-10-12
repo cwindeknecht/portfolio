@@ -6,12 +6,12 @@
   min-width: 100vw;
   position: fixed;
   z-index: 1;
+  color: #b0a18e;
 }
 .header .header__dropdown {
-  min-width: 10vw;
-  max-width: 10vw;
+  position: absolute;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
@@ -23,19 +23,44 @@
   padding: 1rem;
   border-radius: 5rem;
   background: #262216;
-  color: #b0a18e;
 }
 .header .header__dropdown .dropdown__title:hover {
   cursor: pointer;
   filter: brightness(150%);
 }
-.header .header__dropdown .dropdown__item {
-  position: absolute;
-  min-height: 2rem;
-  max-height: 2rem;
-  padding: 1rem;
+.header .header__dropdown .dropdown__item--fadein {
   margin: 1rem;
+  padding: 1rem;
+  border-radius: 5rem;
+  opacity: 0;
+  animation: fadeIn 0.2s forwards ease-in;
+}
+.header .header__dropdown .dropdown__item--fadein:hover {
+  cursor: pointer;
+  filter: brightness(150%);
+}
+.header .header__dropdown .dropdown__item--fadeout {
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 5rem;
+  animation: fadeout 0.2s forwards ease-in;
 }
 .header .header__dropdown .dropdown__item--hidden {
   display: none;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
