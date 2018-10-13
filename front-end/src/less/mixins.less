@@ -1,9 +1,8 @@
-@brown: #262216;
-@olive: #49412c;
-@mustard: #97743a;
-@concrete: #b0a18e;
-
-@dropdown: 0;
+@dark: #111c22;
+@grey: #424652;
+@peach: #eec49e;
+@brown: #786352;
+@yellow: #f1e1b0;
 
 .containers(@flexDirection: column, @justifyContent: center, @alignItems: center) {
   display: flex;
@@ -15,7 +14,23 @@
 }
 
 .titles() {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
+.hover() {
+  &:hover {
+    cursor: pointer;
+    filter: brightness(150%);
+  }
+}
 
+.images() {
+  background: @grey;
+  border-radius: 1rem;
+  object-fit: contain;
+  object-position: 50% 50%;
+  position: relative;
+  &:hover {
+    cursor: pointer;
+  }
+}

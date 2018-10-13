@@ -13,7 +13,7 @@ class Header extends Component {
   state = {
     current: "Home",
     open: false,
-    colors: ["#262216", "#49412c", "#97743a"],
+    colors: ["#111c22", "#424652", "#786352"],
   };
 
   handleDropdown = () => {
@@ -29,13 +29,13 @@ class Header extends Component {
       elements.reverse().forEach((element, i) => {
         // Originally had it not rendering the current option
         // if (element.id !== this.state.current) {
-          let color = i < 3 ? i : i - 3;
-          let id = setTimeout(() => {
-            element.className = "dropdown__item--fadeout";
-            element.style.background = this.state.colors[color];
-          }, timer);
-          timer += 100;
-          ids.push(id);
+        let color = i < 3 ? i : i - 3;
+        let id = setTimeout(() => {
+          element.className = "dropdown__item--fadeout";
+          element.style.background = this.state.colors[color];
+        }, timer);
+        timer += 100;
+        ids.push(id);
         // }
       });
       this.setState({ open: false });
@@ -44,12 +44,12 @@ class Header extends Component {
       elements.forEach((element, i) => {
         // Originally had it not rendering the current option
         // if (element.id !== this.state.current) {
-          let color = i < 3 ? i : i - 3;
-          setTimeout(() => {
-            element.className = "dropdown__item--fadein";
-            element.style.background = this.state.colors[color];
-          }, timer);
-          timer += 100;
+        let color = i < 3 ? i : i - 3;
+        setTimeout(() => {
+          element.className = "dropdown__item--fadein";
+          element.style.background = this.state.colors[color];
+        }, timer);
+        timer += 100;
         // } else {
         //   element.className = "dropdown__item--hidden";
         // }
@@ -95,6 +95,22 @@ class Header extends Component {
             <Link id="Contact" className="dropdown__item--hidden" onClick={this.handleChoice} to="/contact">
               Contact
             </Link>
+          </div>
+          <div className="header__icon">
+            <a
+              className="icon__container"
+              href="https://www.linkedin.com/in/cwindeknecht/"
+              target="_blank"
+              rel="noopener noreferrer">
+              <i style={{ color: "#f1e1b0" }} className="fab fa-linkedin fa-2x" />
+            </a>
+            <a
+              className="icon__container"
+              href="https://github.com/cwindeknecht"
+              target="_blank"
+              rel="noopener noreferrer">
+              <i style={{ color: "#f1e1b0" }} className="fab fa-github fa-2x" />
+            </a>
           </div>
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
