@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 
-import App from "./App";
-import reducers from "./reducers/index.js";
+import Header from "./components/Header";
+import reducers from "./reducers/index";
 
 import "./css/index.css";
 
@@ -15,7 +15,7 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Header />
   </Provider>,
   document.getElementById("root"),
 );

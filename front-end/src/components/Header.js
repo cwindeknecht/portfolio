@@ -1,5 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import Home from "../components/Home";
+import About from "../components/About";
+import Contact from "../components/Contact";
+import Projects from "../components/Projects";
 
 import "../css/Header.css";
 
@@ -14,21 +20,13 @@ class Header extends Component {
     let timer = 0;
     let ids = [];
 
-    // Store hidden items first click
-    let hidden = Array.from(document.getElementsByClassName("dropdown__item--hidden"));
+    let elements = Array.from(document.getElementById("dropdown").children).filter(element => {
+      return element.className !== "dropdown__title";
+    });
 
-    // Store hidden items every time after
-    if (hidden.length < 5) {
-      hidden = Array.from(document.getElementsByClassName("dropdown__item--fadeout"));
-    }
-
-    // Store visible items
-    let shown = Array.from(document.getElementsByClassName("dropdown__item--fadein"));
-
-    console.log("FUCKING HIDDEN", hidden)
+    // Fade-Out
     if (this.state.open) {
-      // Reverse the fade out order
-      shown.slice().reverse().forEach((element,i) => {
+      elements.reverse().forEach((element, i) => {
         if (element.id !== this.state.current) {
           let color = i < 3 ? i : i - 3;
           let id = setTimeout(() => {
@@ -40,8 +38,9 @@ class Header extends Component {
         }
       });
       this.setState({ open: false });
+      // Fade-in
     } else {
-      hidden.forEach((element, i) => {
+      elements.forEach((element, i) => {
         if (element.id !== this.state.current) {
           let color = i < 3 ? i : i - 3;
           setTimeout(() => {
@@ -49,37 +48,59 @@ class Header extends Component {
             element.style.background = this.state.colors[color];
           }, timer);
           timer += 200;
+        } else {
+          element.className = "dropdown__item--hidden";
         }
       });
       this.setState({ open: true });
     }
   };
 
+  handleChoice = event => {
+    event.target.id === "Resume"
+      ? this.setState({ open: false })
+      : this.setState({ current: event.target.id, open: false });
+    this.handleDropdown(false);
+  };
+
   render() {
     let { current } = this.state;
     return (
-      <div className="header">
-        <div className="header__dropdown">
-          <div id="controller" className="dropdown__title" onClick={this.handleDropdown}>
-            {current}
+      <Router>
+        <div className="header">
+          <div id="dropdown" className="header__dropdown">
+            <div id={current} className="dropdown__title" onClick={this.handleDropdown}>
+              {current}
+            </div>
+            <Link id="Home" className="dropdown__item--hidden" onClick={this.handleChoice} exact="true" to="/">
+              Home
+            </Link>
+            <Link id="About" className="dropdown__item--hidden" onClick={this.handleChoice} to="/about">
+              About
+            </Link>
+            <Link id="Projects" className="dropdown__item--hidden" onClick={this.handleChoice} to="/projects">
+              Projects
+            </Link>
+            <a
+              id="Resume"
+              href="https://resume.creddle.io/resume/8bhrij0878e"
+              target="_blank"
+              rel="noopener noreferrer"
+              id="Resume"
+              className="dropdown__item--hidden"
+              onClick={this.handleChoice}>
+              Resume
+            </a>
+            <Link id="Contact" className="dropdown__item--hidden" onClick={this.handleChoice} to="/contact">
+              Contact
+            </Link>
           </div>
-          <div id="Home" className="dropdown__item--hidden">
-            Home
-          </div>
-          <div id="About" className="dropdown__item--hidden">
-            About
-          </div>
-          <div id="Projects" className="dropdown__item--hidden">
-            Projects
-          </div>
-          <div id="Resume" className="dropdown__item--hidden">
-            Resume
-          </div>
-          <div id="Contact" className="dropdown__item--hidden">
-            Contact
-          </div>
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/projects" component={Projects} />
         </div>
-      </div>
+      </Router>
     );
   }
 }
