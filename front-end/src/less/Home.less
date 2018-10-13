@@ -1,3 +1,22 @@
+@import "mixins.less";
+
 .home {
   margin-top: 10vh;
+  .home__packages {
+    .containers(@flexDirection:row);
+    .packages__package {
+      .containers();
+      background: @dark;
+      .package__name {
+        color: @peach;
+      }
+      .package__image {
+        .images();
+        min-height: 10vh;
+        max-height: 10vh;
+        min-width: 10vw;
+        max-width: 10vw;
+      }
+    }
+  }
 }

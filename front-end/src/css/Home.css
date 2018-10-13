@@ -1,3 +1,37 @@
 .home {
   margin-top: 10vh;
 }
+.home .home__packages {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 1.2rem;
+}
+.home .home__packages .packages__package {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 1.2rem;
+  background: #111c22;
+}
+.home .home__packages .packages__package .package__name {
+  color: #eec49e;
+}
+.home .home__packages .packages__package .package__image {
+  background: #424652;
+  border-radius: 1rem;
+  object-fit: contain;
+  object-position: 50% 50%;
+  position: relative;
+  min-height: 10vh;
+  max-height: 10vh;
+  min-width: 10vw;
+  max-width: 10vw;
+}
+.home .home__packages .packages__package .package__image:hover {
+  cursor: pointer;
+}

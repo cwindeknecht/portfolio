@@ -1,32 +1,30 @@
 .header {
-  background: url(https://images.pexels.com/photos/63564/pexels-photo-63564.jpeg?cs=srgb&dl=beach-clouds-landscape-63564.jpg&fm=jpg);
-  background-position-x: 0%;
-  background-repeat: repeat-x;
-  animation: drift 1000s infinite ease-in;
-  background-size: 100vw 10vw;
+  background: url(https://images.pexels.com/photos/358513/pexels-photo-358513.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  background-position-y: 15%;
+  background-size: 100vw 30vh;
   min-height: 10vh;
   max-height: 10vh;
-  min-width: 1000vw;
+  min-width: 100vw;
   position: fixed;
   z-index: 1;
 }
 .header .header__dropdown {
-  position: absolute;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 1.2rem;
+  position: absolute;
 }
 .header .header__dropdown .dropdown__title {
   z-index: 2;
   margin: 1rem;
   padding: 1rem;
   border-radius: 5rem;
-  background: #262216;
-  color: #b0a18e;
-  border: 0.1rem solid #b0a18e;
+  background: #424652;
+  color: #eec49e;
+  border: 0.1rem solid #eec49e;
   min-width: 7rem;
   text-align: center;
 }
@@ -39,10 +37,12 @@
   padding: 1rem;
   border-radius: 5rem;
   opacity: 0;
-  animation: fadeIn 0.2s forwards ease-in;
+  animation: fadeIn 0.3s forwards ease-in;
   text-decoration: none;
-  color: #b0a18e;
-  border: 0.1rem solid #b0a18e;
+  color: #eec49e;
+  border: 0.1rem solid #f1e1b0;
+  min-width: 7rem;
+  text-align: center;
 }
 .header .header__dropdown .dropdown__item--fadein:hover {
   cursor: pointer;
@@ -52,13 +52,43 @@
   margin: 1rem;
   padding: 1rem;
   border-radius: 5rem;
-  animation: fadeout 0.2s forwards ease-in;
+  animation: fadeout 0.3s forwards ease-in;
   text-decoration: none;
-  color: #b0a18e;
-  border: 0.1rem solid #b0a18e;
+  color: #eec49e;
+  border: 0.1rem solid #f1e1b0;
+  min-width: 7rem;
+  text-align: center;
 }
 .header .header__dropdown .dropdown__item--hidden {
   display: none;
+}
+.header .header__icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 1.2rem;
+  position: absolute;
+  left: 92vw;
+  max-width: 20vw;
+  min-height: 10vh;
+  max-height: 10vh;
+}
+.header .header__icon .icon__container {
+  background: #111c22;
+  min-width: 3vw;
+  max-width: 3vw;
+  border-radius: 5rem;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+.header .header__icon .icon__container:hover {
+  cursor: pointer;
+  filter: brightness(150%);
+}
+.header .header__icon .icon__container:last-of-type {
+  background: #424652;
 }
 @keyframes fadeIn {
   from {
