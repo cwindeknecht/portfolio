@@ -1,14 +1,16 @@
 @import "mixins.less";
 
 .header {
-  background: url(https://images.pexels.com/photos/220116/pexels-photo-220116.jpeg?cs=srgb&dl=autumn-background-board-220116.jpg&fm=jpg);
-  background-size: auto;
+  background: url(https://images.pexels.com/photos/63564/pexels-photo-63564.jpeg?cs=srgb&dl=beach-clouds-landscape-63564.jpg&fm=jpg);
+  background-position-x: 0%;
+  background-repeat: repeat-x;
+  animation: drift 1000s infinite ease-in;
+  background-size: 100vw 10vw;
   min-height: 10vh;
   max-height: 10vh;
-  min-width: 100vw;
+  min-width: 1000vw;
   position: fixed;
   z-index: 1;
-  color: @concrete;
   .header__dropdown {
     position: absolute;
     .containers(@flexDirection: row);
@@ -18,7 +20,10 @@
       padding: 1rem;
       border-radius: 5rem;
       background: @brown;
-
+      color: @concrete;
+      border: 0.1rem solid @concrete;
+      min-width: 7rem;
+      text-align: center;
       &:hover {
         cursor: pointer;
         filter: brightness(150%);
@@ -29,7 +34,10 @@
       padding: 1rem;
       border-radius: 5rem;
       opacity: 0;
-      animation: fadeIn 0.2s forwards ease-in;
+      animation: fadeIn 0.3s forwards ease-in;
+      text-decoration: none;
+      color: @concrete;
+      border: 0.1rem solid @concrete;
       &:hover {
         cursor: pointer;
         filter: brightness(150%);
@@ -39,7 +47,10 @@
       margin: 1rem;
       padding: 1rem;
       border-radius: 5rem;
-      animation: fadeout 0.2s forwards ease-in;
+      animation: fadeout 0.3s forwards ease-in;
+      text-decoration: none;
+      color: @concrete;
+      border: 0.1rem solid @concrete;
     }
     .dropdown__item--hidden {
       display: none;
@@ -62,5 +73,17 @@
   }
   to {
     opacity: 0;
+  }
+}
+
+@keyframes drift {
+  0% {
+    background-position-x: 0%;
+  }
+  50% {
+    background-position-x: 100%;
+  }
+  100% {
+    background-position-x: 0%;
   }
 }
