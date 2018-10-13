@@ -27,30 +27,32 @@ class Header extends Component {
     // Fade-Out
     if (this.state.open) {
       elements.reverse().forEach((element, i) => {
-        if (element.id !== this.state.current) {
+        // Originally had it not rendering the current option
+        // if (element.id !== this.state.current) {
           let color = i < 3 ? i : i - 3;
           let id = setTimeout(() => {
             element.className = "dropdown__item--fadeout";
             element.style.background = this.state.colors[color];
           }, timer);
-          timer += 200;
+          timer += 100;
           ids.push(id);
-        }
+        // }
       });
       this.setState({ open: false });
       // Fade-in
     } else {
       elements.forEach((element, i) => {
-        if (element.id !== this.state.current) {
+        // Originally had it not rendering the current option
+        // if (element.id !== this.state.current) {
           let color = i < 3 ? i : i - 3;
           setTimeout(() => {
             element.className = "dropdown__item--fadein";
             element.style.background = this.state.colors[color];
           }, timer);
-          timer += 200;
-        } else {
-          element.className = "dropdown__item--hidden";
-        }
+          timer += 100;
+        // } else {
+        //   element.className = "dropdown__item--hidden";
+        // }
       });
       this.setState({ open: true });
     }
@@ -86,7 +88,6 @@ class Header extends Component {
               href="https://resume.creddle.io/resume/8bhrij0878e"
               target="_blank"
               rel="noopener noreferrer"
-              id="Resume"
               className="dropdown__item--hidden"
               onClick={this.handleChoice}>
               Resume
