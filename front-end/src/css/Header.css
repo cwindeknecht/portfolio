@@ -6,7 +6,6 @@
   max-height: 10vh;
   min-width: 100vw;
   position: fixed;
-  z-index: 1;
 }
 .header .header__dropdown {
   display: flex;
@@ -18,7 +17,6 @@
   position: absolute;
 }
 .header .header__dropdown .dropdown__title {
-  z-index: 2;
   margin: 1rem;
   padding: 1rem;
   border-radius: 5rem;

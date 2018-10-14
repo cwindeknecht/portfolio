@@ -1,22 +1,177 @@
 @import "mixins.less";
 
 .home {
+  .containers();
   margin-top: 10vh;
   .home__packages {
     .containers(@flexDirection:row);
+    background: @yellow;
+    border-bottom-left-radius: 20rem;
+    border-bottom-right-radius: 20rem;
+    border: 1rem solid @dark;
+    border-width: 0 1rem 1rem 1rem;
+    min-width: 70vw;
+    min-height: 30vh;
     .packages__package {
       .containers();
       background: @dark;
+      border-radius: 5rem;
       .package__name {
         color: @peach;
       }
       .package__image {
         .images();
+        padding: 0.5rem;
         min-height: 10vh;
         max-height: 10vh;
         min-width: 10vw;
         max-width: 10vw;
       }
     }
+    .packages__package0 {
+      transform: rotate(30deg) translate(-7vw, 3vh) scale(0.8);
+      opacity: 0.6;
+    }
+    .packages__package1 {
+      transform: rotate(10deg) translate(-5vw, 5vh);
+      opacity: 0.8;
+    }
+    .packages__package2 {
+      transform: translate(0, 5vh) scale(1.2);
+    }
+    .packages__package3 {
+      transform: rotate(-10deg) translate(5vw, 5vh);
+      opacity: 0.8;
+    }
+    .packages__package4 {
+      transform: rotate(-30deg) translate(7vw, 3vh) scale(0.8);
+      opacity: 0.6;
+    }
+  }
+  .home__arrows {
+    .containers(@flexDirection: row);
+    background: @brown;
+    border-bottom-left-radius: 20rem;
+    border-bottom-right-radius: 20rem;
+    padding: 1rem;
+    min-width: 15vw;
+    .arrows__button {
+      .shadow();
+      .shadowHover();
+      margin: 0 1rem;
+      background: @dark;
+      border-radius: 1rem;
+      .button__icon {
+        margin: 1rem;
+        color: @peach;
+      }
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+  .home__home {
+    .containers(@flexDirection: row);
+    .home__welcome {
+      .containers();
+      margin: 5vh 5vw;
+      padding: 2rem;
+      width: auto;
+      min-height: 20vh;
+      background: @peach;
+      color: @brown;
+      border-top-right-radius: 20rem;
+      border-top-left-radius: 20rem;
+      border-bottom-right-radius: 20rem;
+      .welcome__text {
+        left: 0%;
+        animation: scroll1 5s forwards;
+        overflow: hidden;
+        white-space: nowrap;
+        min-width: 80vw;
+      }
+      .welcome__text--alt {
+        left: 0%;
+        animation: scroll2 5s forwards;
+        overflow: hidden;
+        white-space: nowrap;
+        min-width: 80vw;
+      }
+    }
+  }
+}
+
+.walk-away {
+  position: relative;
+  animation: 7s leave forwards;
+}
+
+.walk-to {
+  position: relative;
+  animation: 7s leave reverse; 
+}
+
+@keyframes scroll1 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes scroll2 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes leave {
+  0% {
+    left: 20vw;
+    transform: rotate(10deg);
+  }
+  10% {
+    left: 15vw;
+    transform: rotate(0deg);
+  }
+  20% {
+    left: 10vw;
+    transform: rotate(-10deg);
+  }
+  30% {
+    left: 5vw;
+    transform: rotate(0deg);
+  }
+  40% {
+    left: 0vw;
+    transform: rotate(10deg);
+  }
+  50% {
+    left: -5vw;
+    transform: rotate(0deg);
+  }
+  60% {
+    left: -10vw;
+    transform: rotate(-10deg);
+  }
+  70% {
+    left: -15vw;
+    transform: rotate(0deg);
+  }
+  80% {
+    left: -20vw;
+    transform: rotate(10deg);
+  }
+  90% {
+    left: -25vw;
+    transform: rotate(0deg);
+  }
+  100% {
+    left: -30vw;
+    transform: rotate(-10deg);
   }
 }
