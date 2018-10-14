@@ -1,4 +1,10 @@
 .home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 1.2rem;
   margin-top: 10vh;
 }
 .home .home__packages {
@@ -8,6 +14,13 @@
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 1.2rem;
+  background: #f1e1b0;
+  border-bottom-left-radius: 20rem;
+  border-bottom-right-radius: 20rem;
+  border: 1rem solid #111c22;
+  border-width: 0 1rem 1rem 1rem;
+  min-width: 70vw;
+  min-height: 30vh;
 }
 .home .home__packages .packages__package {
   display: flex;
@@ -17,6 +30,7 @@
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 1.2rem;
   background: #111c22;
+  border-radius: 5rem;
 }
 .home .home__packages .packages__package .package__name {
   color: #eec49e;
@@ -27,6 +41,7 @@
   object-fit: contain;
   object-position: 50% 50%;
   position: relative;
+  padding: 0.5rem;
   min-height: 10vh;
   max-height: 10vh;
   min-width: 10vw;
@@ -34,4 +49,162 @@
 }
 .home .home__packages .packages__package .package__image:hover {
   cursor: pointer;
+}
+.home .home__packages .packages__package0 {
+  transform: rotate(30deg) translate(-7vw, 3vh) scale(0.8);
+  opacity: 0.6;
+}
+.home .home__packages .packages__package1 {
+  transform: rotate(10deg) translate(-5vw, 5vh);
+  opacity: 0.8;
+}
+.home .home__packages .packages__package2 {
+  transform: translate(0, 5vh) scale(1.2);
+}
+.home .home__packages .packages__package3 {
+  transform: rotate(-10deg) translate(5vw, 5vh);
+  opacity: 0.8;
+}
+.home .home__packages .packages__package4 {
+  transform: rotate(-30deg) translate(7vw, 3vh) scale(0.8);
+  opacity: 0.6;
+}
+.home .home__arrows {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 1.2rem;
+  background: #786352;
+  border-bottom-left-radius: 20rem;
+  border-bottom-right-radius: 20rem;
+  padding: 1rem;
+  min-width: 15vw;
+}
+.home .home__arrows .arrows__button {
+  box-shadow: 0px 0px 10px 5px #f1e1b0;
+  margin: 0 1rem;
+  background: #111c22;
+  border-radius: 1rem;
+}
+.home .home__arrows .arrows__button:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 15px 10px #eec49e;
+}
+.home .home__arrows .arrows__button .button__icon {
+  margin: 1rem;
+  color: #eec49e;
+}
+.home .home__arrows .arrows__button:focus {
+  outline: 0;
+}
+.home .home__home {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 1.2rem;
+}
+.home .home__home .home__welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 1.2rem;
+  margin: 5vh 5vw;
+  padding: 2rem;
+  width: auto;
+  min-height: 20vh;
+  background: #eec49e;
+  color: #786352;
+  border-top-right-radius: 20rem;
+  border-top-left-radius: 20rem;
+  border-bottom-right-radius: 20rem;
+}
+.home .home__home .home__welcome .welcome__text {
+  left: 0%;
+  animation: scroll1 5s forwards;
+  overflow: hidden;
+  white-space: nowrap;
+  min-width: 80vw;
+}
+.home .home__home .home__welcome .welcome__text--alt {
+  left: 0%;
+  animation: scroll2 5s forwards;
+  overflow: hidden;
+  white-space: nowrap;
+  min-width: 80vw;
+}
+.walk-away {
+  position: relative;
+  animation: 7s leave forwards;
+}
+.walk-to {
+  position: relative;
+  animation: 7s leave reverse;
+}
+@keyframes scroll1 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes scroll2 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes leave {
+  0% {
+    left: 20vw;
+    transform: rotate(10deg);
+  }
+  10% {
+    left: 15vw;
+    transform: rotate(0deg);
+  }
+  20% {
+    left: 10vw;
+    transform: rotate(-10deg);
+  }
+  30% {
+    left: 5vw;
+    transform: rotate(0deg);
+  }
+  40% {
+    left: 0vw;
+    transform: rotate(10deg);
+  }
+  50% {
+    left: -5vw;
+    transform: rotate(0deg);
+  }
+  60% {
+    left: -10vw;
+    transform: rotate(-10deg);
+  }
+  70% {
+    left: -15vw;
+    transform: rotate(0deg);
+  }
+  80% {
+    left: -20vw;
+    transform: rotate(10deg);
+  }
+  90% {
+    left: -25vw;
+    transform: rotate(0deg);
+  }
+  100% {
+    left: -30vw;
+    transform: rotate(-10deg);
+  }
 }
