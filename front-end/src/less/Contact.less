@@ -1,3 +1,63 @@
-.contact{
-    margin-top: 10vh;
+@import "mixins.less";
+
+.contact {
+  .containers(@flexDirection: row);
+  height: 100vh;
+  .contact__form {
+    .containers();
+    min-width: 60vw;
+    max-width: 60vw;
+    min-height: 50vh;
+    max-height: 50vh;
+    color: @brown;
+    background: @brown;
+    border-radius: 5rem;
+    padding: 1rem;
+    .form__input {
+      background: @peach;
+      width: 50%;
+      padding: 0.5rem;
+      margin: 0.5rem;
+      &:focus {
+        background: @yellow;
+      }
+    }
+    .form__textarea {
+      width: 50%;
+      height: 20vh;
+      padding: 0.5rem;
+      margin: 0.5rem;
+      background: @peach;
+      &:focus {
+        background: @yellow;
+      }
+    }
+    .form__check {
+      .containers(@flexDirection:row);
+      .check__label {
+        padding: 1rem;
+        margin: 1rem;
+        color: @dark;
+      }
+      .check__box {
+        width: 1.2rem;
+        height: 1.2rem;
+      }
+    }
+    .form__button {
+      .shadow();
+      .shadowHover();
+      margin: 0 1rem;
+      background: @grey;
+      border-radius: 1rem;
+      min-height: 5vh;
+      .button__icon {
+        margin: 1rem;
+        color: @peach;
+      }
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
 }
