@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import Home from "../components/Home";
-import About from "../components/About";
 import Contact from "../components/Contact";
 import Projects from "../components/Projects";
 
@@ -77,9 +76,6 @@ class Header extends Component {
             <Link id="Home" className="dropdown__item--hidden" onClick={this.handleChoice} exact="true" to="/">
               Home
             </Link>
-            <Link id="About" className="dropdown__item--hidden" onClick={this.handleChoice} to="/about">
-              About
-            </Link>
             <Link id="Projects" className="dropdown__item--hidden" onClick={this.handleChoice} to="/projects">
               Projects
             </Link>
@@ -102,7 +98,7 @@ class Header extends Component {
               href="https://www.linkedin.com/in/cwindeknecht/"
               target="_blank"
               rel="noopener noreferrer">
-              <i style={{ color: "#f1e1b0" }} className="fab fa-linkedin fa-2x" />
+              <i style={{ color: "#424652" }} className="fab fa-linkedin fa-2x" />
             </a>
             <a
               className="icon__container"
@@ -113,7 +109,6 @@ class Header extends Component {
             </a>
           </div>
           <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
           <Route path="/projects" component={Projects} />
         </div>
