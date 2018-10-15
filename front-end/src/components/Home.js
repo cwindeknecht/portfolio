@@ -24,41 +24,37 @@ class Home extends Component {
     current: 0,
     currentMessage: "...",
     dude: 0,
+    clear: [],
+    done: false,
   };
 
-  // https://api.github.com/users/expressjs
-  // "avatar_url": "https://avatars2.githubusercontent.com/u/5658226?v=4",
-
   componentDidMount = () => {
+    this.getImages();
     this.determineStartEnd();
     this.getMessages();
     this.enterDude();
-    this.getImages();
   };
 
-  componentDidUpdate = prevState => {
+  componentDidUpdate = (prevProps, prevState) => {
     if (prevState.carousel !== this.state.carousel) {
       this.determineStartEnd();
     }
     if (prevState.current !== this.state.current) {
-      console.log("WHAT THE FUCK BITCH");
       this.getDude();
     }
   };
 
-  getImages = () => {
-    let promises = packages.map(pckg => {
-      return new Promise(resolve => {
-        resolve(
-          axios.get(`https://api.github.com/users/${pckg.username}`).then(result => {
-            pckg.image = result.data.avatar_url;
-            return pckg;
-          }),
-        );
-      });
+  componentWillUnmount = () => {
+    this.state.clear.forEach(code => {
+      clearTimeout(code);
     });
-    Promise.all(promises).then(results => {
-      console.log(results);
+  };
+
+  getImages = () => {
+    packages.forEach(pckg => {
+      axios.get(`https://api.github.com/users/${pckg.username}`).then(result => {
+        pckg.image = result.data.avatar_url;
+      });
     });
   };
 
@@ -106,7 +102,7 @@ class Home extends Component {
   };
 
   getMessages = () => {
-    let { current } = this.state;
+    let { current, clear } = this.state;
     const messages = [
       "Hey, I'm pretty creepy right?  Yeah, I'm no artist... But I had an idea and I went with it.",
       "Anywho... Hello!  Welcome to my portfolio website.  Have a look around.  Learn a bit about me.",
@@ -116,17 +112,25 @@ class Home extends Component {
       "Maybe you will even contact me and let me know what you think?  I think you should.",
     ];
     const change = () => {
-      if (document.getElementById("welcome")){
+      if (document.getElementById("welcome")) {
         document.getElementById("welcome").className = current % 2 === 1 ? "welcome__text" : "welcome__text--alt";
-        this.setState({ currentMessage: messages[current], current: ++current });
+        this.setState({ currentMessage: messages[current], current: ++current, clear });
         if (current > messages.length - 1) {
           clearInterval(message);
           this.leaveDude();
           this.setState({ currentMessage: "Well, I'm leaving now, I'll stop creepin' you out.  Bye bye." });
+          setTimeout(() => {
+            let messages = document.getElementById("messages");
+            while (messages.firstChild) {
+              messages.removeChild(messages.firstChild);
+            }
+            this.setState({done: true})
+          }, 5000);
         }
       }
     };
     const message = setInterval(change, 7000);
+    clear.push(message);
   };
 
   getDude = () => {
@@ -150,6 +154,7 @@ class Home extends Component {
   };
 
   dude = images => {
+    let { clear } = this.state;
     let i = 0;
     let talk = () => {
       let img = document.getElementById("dude");
@@ -166,25 +171,22 @@ class Home extends Component {
     };
     let speech = setInterval(talk, 150);
     let creepy = setInterval(smile, 6000);
+    clear.push(speech);
+    clear.push(creepy);
+    this.setState({ clear });
   };
 
   // DRY, I know... probably as simple as setting a bool on state
   leaveDude = () => {
-    new Promise(resolve => {
-      resolve(this.dude([DownOpen, DownShut, DownSmile]));
-    }).then(() => {
-      let img = document.getElementById("dude");
-      if (img) img.className = "walk-away";
-    });
+    this.dude([DownOpen, DownShut, DownSmile]);
+    let img = document.getElementById("dude");
+    if (img) img.className = "walk-away";
   };
 
   enterDude = () => {
-    new Promise(resolve => {
-      resolve(this.dude([DownOpen, DownShut, DownSmile]));
-    }).then(() => {
-      let img = document.getElementById("dude");
-      if (img) img.className = "walk-to";
-    });
+    this.dude([DownShut, DownShut, DownSmile]);
+    let img = document.getElementById("dude");
+    if (img) img.className = "walk-to";
   };
 
   render() {
@@ -214,9 +216,8 @@ class Home extends Component {
             <i className="fas fa-angle-right fa-3x button__icon" />
           </button>
         </div>
-        {/* Fix this classname later, just need to do this really quick */}
-        <div className="home__home">
-          <img id="dude" alt="dude" className="welcome__dude" />
+        <div id="messages" className="home__home">
+          <img id="dude" alt="dude" />
           <div className="home__welcome">
             <div id="welcome" className="welcome__text">
               {currentMessage}
