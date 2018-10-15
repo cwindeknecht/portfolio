@@ -26,6 +26,7 @@ class Home extends Component {
     dude: 0,
     clear: [],
     done: false,
+    me: null,
   };
 
   componentDidMount = () => {
@@ -55,6 +56,9 @@ class Home extends Component {
       axios.get(`https://api.github.com/users/${pckg.username}`).then(result => {
         pckg.image = result.data.avatar_url;
       });
+    });
+    axios.get(`https://api.github.com/users/cwindeknecht`).then(result => {
+      this.setState({ me: result.data.avatar_url });
     });
   };
 
@@ -124,7 +128,7 @@ class Home extends Component {
             while (messages.firstChild) {
               messages.removeChild(messages.firstChild);
             }
-            this.setState({done: true})
+            this.setState({ done: true });
           }, 5000);
         }
       }
@@ -224,6 +228,37 @@ class Home extends Component {
             </div>
           </div>
         </div>
+        {this.state.done ? (
+          <div className="home__done">
+            <div className="done__section">
+              <img alt="me" className="section__image" src={this.state.me} />
+            </div>
+            <div className="done__section">
+              <div className="section__text">
+                <div className="text__segment">
+                  Hello, my name is Cody Windeknecht. I am a goofy person if that intro didn't make it apparent. More
+                  importantly, I am a recent graduate of Lambda School and a passionate coder. Front-end, back-end, it
+                  is all fun and exciting. Except for the Google Places API.
+                </div>
+                <div className="text__segment">
+                  As much as I enjoy web development, I am open and willing to branch out into any variation of coding.
+                  Going beyond Lambda's teaching of C and getting a better understanding of languages like C#, C++, and
+                  Java are of high importance to me. Even if I were to do web development for the duration of my life, I
+                  will still make that a high priority.
+                </div>
+                <div className="text__segment">
+                  After years in retail management and a degree in Philosophy and English, I am looking for a change of
+                  pace. I loved building websites in my early teens, so I figured I would give it a shot. My initial plan
+                  was the traditional route, so I took the GRE and went to the University of Tennessee at Chattanooga
+                  to attend their Master's program. After an enlightening conversation with a professor, I decided to
+                  pursue something that was as equally focused on coding as it was on computer science. When I read about
+                  Lambda School, I realized how tailor-made it seemed for me. Turns out I still love it at much as I did
+                  when I was younger and want to bring that passion to the world.
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : null}
       </div>
     );
   }
