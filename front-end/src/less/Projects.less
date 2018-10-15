@@ -38,7 +38,7 @@
     max-height: 50vh;
     margin: 10vh 0;
     background: @yellow;
-    box-shadow: 0px 0px 10px 0px @peach, 5px 10px 20px @peach;
+    box-shadow:0px 0px 0px 0px @peach, 0px 20px 70px @peach;
     .project__gif {
       .images();
       min-width: 30vw;
@@ -67,12 +67,14 @@
           border-bottom: 0.2rem;
           border-color: @brown;
           border-style: dashed;
+          .hover();
         }
         .title__icon {
           background: @brown;
           height: 100%;
           border-radius: 90%;
           padding: 0.2rem;
+          .hover();
         }
       }
       .info__description {
