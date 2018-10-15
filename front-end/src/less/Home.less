@@ -73,7 +73,13 @@
     }
   }
   .home__home {
-    .containers(@flexDirection: row);
+    .containers(@flexDirection: row, @justifyContent: flex-end, @alignItems: flex-start);
+    min-width: 80vw;
+    .home__dude {
+      .images();
+      min-width: 12.5rem;
+      min-height: 25rem;
+    }
     .home__welcome {
       .containers();
       margin: 1vh 5vw 30vh 1vw;
@@ -129,7 +135,7 @@
     min-height: 50vh;
     animation: done 2s forwards ease-in;
     .done__section {
-      .containers(@flexDirection: row, @alignItems: flex-start, @justifyContent:space-around);
+      .containers(@flexDirection: row, @alignItems: flex-start, @justifyContent:space-between);
       padding: 1rem;
       width: 30%;
       border-right: 1rem solid @dark;
@@ -198,7 +204,7 @@
 
 @keyframes leave {
   from {
-    left: 0vw;
+    left: -5vw;
   }
   to {
     left: -25vw;
@@ -237,7 +243,7 @@
     left: -25vw;
   }
   to {
-    left: 0vw;
+    left: -5vw;
   }
   0% {
     transform: rotate(0deg) translate(0px, 0px);

@@ -221,7 +221,7 @@ class Home extends Component {
           </button>
         </div>
         <div id="messages" className="home__home">
-          <img id="dude" alt="dude" />
+          <img id="dude" alt="dude" className="home__dude"/>
           <div className="home__welcome">
             <div id="welcome" className="welcome__text">
               {currentMessage}
