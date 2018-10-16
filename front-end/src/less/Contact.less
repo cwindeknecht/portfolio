@@ -7,24 +7,33 @@
     .containers();
     min-width: 60vw;
     max-width: 60vw;
-    min-height: 50vh;
-    max-height: 50vh;
+    min-height: 60vh;
+    max-height: 60vh;
     color: @brown;
     background: @brown;
     border-radius: 5rem;
     padding: 1rem;
     .form__input {
       background: @peach;
-      width: 50%;
+      width: 40vw;
       padding: 0.5rem;
       margin: 0.5rem;
       &:focus {
         background: @yellow;
       }
     }
+    .form__halves {
+      .containers(@flexDirection: row);
+      width: 100%;
+      .form__input--half {
+        .form__input();
+        width: 19.5vw;
+      }
+    }
+
     .form__textarea {
-      width: 50%;
-      height: 20vh;
+      width: 40vw;
+      height: 15vh;
       padding: 0.5rem;
       margin: 0.5rem;
       background: @peach;
@@ -44,13 +53,28 @@
         height: 1.2rem;
       }
     }
+    .form__error {
+      min-height: 2rem;
+      background: @dark;
+      border-top-left-radius: 10rem;
+      border-top-right-radius: 10rem;
+      font-size: 1rem;
+      color: red;
+      padding: 0.5rem 1rem;
+      min-width: 25vw;
+      text-align: center;
+    }
+    .form__error--empty {
+      min-height: 2rem;
+    }
     .form__button {
-      .shadow();
-      .shadowHover();
+      .shadow(@y: 10px, @blur: 10px, @spread: 0px);
+      .shadowHover(@y: 10px, @blur: 15px, @spread: 5px);
       margin: 0 1rem;
       background: @grey;
       border-radius: 1rem;
       min-height: 5vh;
+      min-width: 25vw;
       .button__icon {
         margin: 1rem;
         color: @peach;
@@ -58,6 +82,11 @@
       &:focus {
         outline: 0;
       }
+    }
+    .form__button--error {
+      .form__button();
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
     }
   }
 }
