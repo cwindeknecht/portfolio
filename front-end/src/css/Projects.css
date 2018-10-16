@@ -33,7 +33,7 @@
 }
 .projects .projects__arrow .arrow__button:hover {
   cursor: pointer;
-  box-shadow: 0px 0px 15px 10px #eec49e;
+  box-shadow: 0px 0px 15px 10px #f1e1b0;
 }
 .projects .projects__arrow .arrow__button .button__icon {
   margin: 1rem;

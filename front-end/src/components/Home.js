@@ -16,8 +16,6 @@ import { packages } from "../data/data";
 
 import "../css/Home.css";
 
-// let backend = process.env.REACT_APP_BACKEND || process.env.HEROKU_BACKEND;
-
 class Home extends Component {
   state = {
     carousel: 2,
