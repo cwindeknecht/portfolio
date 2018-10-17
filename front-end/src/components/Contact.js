@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import axios from "axios";
+import { BrowserRouter as Route, Link } from "react-router-dom";
+
+import Home from "./Home";
 
 import "../css/Contact.css";
 
 let backend = process.env.REACT_APP_BACKEND || process.env.HEROKU_BACKEND;
 
-class Contact extends Component {
+export default class Contact extends Component {
   state = {
     name: "",
     title: "",
@@ -15,6 +17,8 @@ class Contact extends Component {
     copy: false,
     errorEmpty: false,
     errorMessage: "",
+    submitted: false,
+    done: false,
   };
 
   componentDidUpdate = (prevProps, prevState) => {
@@ -44,12 +48,13 @@ class Contact extends Component {
 
     let { name, title, body, email, copy, errorMessage } = this.state;
     let message = { name, title, body, email };
-    
+
     if ((name || title || body || email) && !errorMessage) {
+      this.setState({ submitted: true });
       axios
         .post(`${backend}/email/${copy}`, message)
         .then(response => {
-          console.log("Response", response);
+          this.setState({ name: "", title: "", body: "", email: "", done: true });
         })
         .catch(error => {
           console.log("Error", error);
@@ -59,9 +64,13 @@ class Contact extends Component {
     }
   };
 
+  handleNope = () => {
+    this.props.setHeader("Home");
+  };
+
   render() {
-    let { name, title, body, email, copy, errorMessage } = this.state;
-    return (
+    let { name, title, body, email, copy, errorMessage, done, submitted } = this.state;
+    return !done ? (
       <div className="contact">
         <form className="contact__form">
           <div className="form__halves">
@@ -87,7 +96,6 @@ class Contact extends Component {
             placeholder="Title of Message"
             onChange={this.handleInput}
           />
-
           <textarea
             name="body"
             value={body}
@@ -104,21 +112,35 @@ class Contact extends Component {
             type="submit"
             className={errorMessage ? "form__button--error" : "form__button"}
             onClick={this.handleSubmit}>
-            <i className="fas fa-envelope fa-2x button__icon" />
+            {submitted ? (
+              <i className="fa fa-spinner fa-spin package__image" />
+            ) : (
+              <i className="fas fa-envelope fa-2x button__icon" />
+            )}
           </button>
         </form>
+      </div>
+    ) : (
+      <div className="contact">
+        <div className="contact--done">
+          <div className="contact--done__title">
+            Assuming you provided a legitmate e-mail address, you should see a copy in your inbox! Thanks for trying out
+            my messages.
+          </div>
+          <div className="contact--done__buttons">
+            <div className="buttons__title">Want to send another message for some reason?</div>
+            <button className="buttons__button" onClick={this.handleNewMessage}>
+              Sure
+            </button>
+            <Link to="/">
+              <button className="buttons__button" onClick={this.handleNope}>
+                Nope
+              </button>
+            </Link>
+            <Route exact path="/" component={Home} />
+          </div>
+        </div>
       </div>
     );
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    current: state.current,
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  null,
-)(Contact);

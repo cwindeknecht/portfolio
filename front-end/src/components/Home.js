@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import axios from "axios";
 
 import DownOpen from "../img/DownOpen.png";
@@ -16,7 +15,7 @@ import { packages } from "../data/data";
 
 import "../css/Home.css";
 
-class Home extends Component {
+export default class Home extends Component {
   state = {
     carousel: 2,
     current: 0,
@@ -261,14 +260,3 @@ class Home extends Component {
     );
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    current: state.current,
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  null,
-)(Home);
