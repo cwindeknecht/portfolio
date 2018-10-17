@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "../components/Home";
 import Contact from "../components/Contact";
 import Projects from "../components/Projects";
+import Random from "../components/Random";
 
 import "../css/Header.css";
 
@@ -25,16 +26,18 @@ export default class Header extends Component {
     // Fade-Out
     if (this.state.open) {
       elements.reverse().forEach((element, i) => {
-        // Originally had it not rendering the current option
-        // if (element.id !== this.state.current) {
         let color = i < 3 ? i : i - 3;
-        let id = setTimeout(() => {
+        // Fade the elements out
+        let fadeout = setTimeout(() => {
           element.className = "dropdown__item--fadeout";
           element.style.background = this.state.colors[color];
         }, timer);
         timer += 100;
-        ids.push(id);
-        // }
+        // Hide the elements after they fade-out
+        let hidden = setTimeout(() => {
+          element.className = "dropdown__item--hidden";
+        }, elements.length * 100);
+        ids.push(fadeout, hidden);
       });
       this.setState({ open: false });
       // Fade-in
@@ -63,9 +66,9 @@ export default class Header extends Component {
     this.handleDropdown(false);
   };
 
-  setHeader = (current) => {
-    this.setState({current})
-  }
+  setHeader = current => {
+    this.setState({ current });
+  };
 
   render() {
     let { current } = this.state;
@@ -94,6 +97,9 @@ export default class Header extends Component {
             <Link id="Contact" className="dropdown__item--hidden" onClick={this.handleChoice} to="/contact">
               Contact
             </Link>
+            <Link id="Random" className="dropdown__item--hidden" onClick={this.handleChoice} to="/random">
+              Random
+            </Link>
           </div>
           <div className="header__icon">
             <a
@@ -114,6 +120,7 @@ export default class Header extends Component {
           <Route exact path="/" render={() => <Home setHeader={this.setHeader} />} />
           <Route path="/contact" render={() => <Contact setHeader={this.setHeader} />} />
           <Route path="/projects" render={() => <Projects setHeader={this.setHeader} />} />
+          <Route path="/projects" render={() => <Random setHeader={this.setHeader} />} />
         </div>
       </Router>
     );
