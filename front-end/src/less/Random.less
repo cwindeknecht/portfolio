@@ -1,10 +1,58 @@
 @import "mixins.less";
 
 .random {
-  .containers(@flexDirection: row, @justifyContent: space-around);
   height: 100vh;
-  .random__initial {
+  .random__section {
+    .containers();
+    .shadow();
+    .shadowHover();
+    position: absolute;
     height: 30vh;
     width: 30vw;
+    background: @yellow;
+    color: @grey;
+    border: 1rem solid @brown;
+    border-radius: 1rem;
+    top: 40vh;
+  }
+  .random__section--left {
+    left: 19vw;
+  }
+  .random__section--right {
+    left: 51vw;
+  }
+  .random__section--hidden {
+    .random__section();
+    animation: hide 1s forwards ease-in;
+  }
+  .random__expanded {
+    .random__section();
+    animation: expand 1s forwards ease-in;
+  }
+}
+
+@keyframes expand {
+  0% {
+    width: 30vw;
+    height: 30vh;
+  }
+  100% {
+    width: 80vw;
+    height: 60vh;
+    top: 20vh;
+    left: 9vw;
+  }
+}
+
+@keyframes hide {
+  0% {
+    height: 30vh;
+    width: 30vw;
+  }
+  100% {
+    opacity: 0.1;
+    height: 10vh;
+    width: 10vw;
+    visibility: hidden;
   }
 }
