@@ -120,7 +120,7 @@ export default class Header extends Component {
           <Route exact path="/" render={() => <Home setHeader={this.setHeader} />} />
           <Route path="/contact" render={() => <Contact setHeader={this.setHeader} />} />
           <Route path="/projects" render={() => <Projects setHeader={this.setHeader} />} />
-          <Route path="/projects" render={() => <Random setHeader={this.setHeader} />} />
+          <Route path="/random" render={() => <Random setHeader={this.setHeader} />} />
         </div>
       </Router>
     );

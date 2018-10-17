@@ -1,13 +1,98 @@
 .random {
+  height: 100vh;
+}
+.random .random__section {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 1.2rem;
-  height: 100vh;
-}
-.random .random__initial {
+  box-shadow: 0px 0px 10px 5px #424652;
+  position: absolute;
   height: 30vh;
   width: 30vw;
+  background: #f1e1b0;
+  color: #424652;
+  border: 1rem solid #786352;
+  border-radius: 1rem;
+  top: 40vh;
+}
+.random .random__section:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 15px 10px #eec49e;
+}
+.random .random__section--left {
+  left: 19vw;
+}
+.random .random__section--right {
+  left: 51vw;
+}
+.random .random__section--hidden {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 1.2rem;
+  box-shadow: 0px 0px 10px 5px #424652;
+  position: absolute;
+  height: 30vh;
+  width: 30vw;
+  background: #f1e1b0;
+  color: #424652;
+  border: 1rem solid #786352;
+  border-radius: 1rem;
+  top: 40vh;
+  animation: hide 1s forwards ease-in;
+}
+.random .random__section--hidden:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 15px 10px #eec49e;
+}
+.random .random__expanded {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 1.2rem;
+  box-shadow: 0px 0px 10px 5px #424652;
+  position: absolute;
+  height: 30vh;
+  width: 30vw;
+  background: #f1e1b0;
+  color: #424652;
+  border: 1rem solid #786352;
+  border-radius: 1rem;
+  top: 40vh;
+  animation: expand 1s forwards ease-in;
+}
+.random .random__expanded:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 15px 10px #eec49e;
+}
+@keyframes expand {
+  0% {
+    width: 30vw;
+    height: 30vh;
+  }
+  100% {
+    width: 80vw;
+    height: 60vh;
+    top: 20vh;
+    left: 9vw;
+  }
+}
+@keyframes hide {
+  0% {
+    height: 30vh;
+    width: 30vw;
+  }
+  100% {
+    opacity: 0.1;
+    height: 10vh;
+    width: 10vw;
+    visibility: hidden;
+  }
 }
