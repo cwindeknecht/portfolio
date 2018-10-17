@@ -14,6 +14,81 @@
     border: 1rem solid @brown;
     border-radius: 1rem;
     top: 40vh;
+    .section__title {
+      color: @brown;
+    }
+    .section__search {
+      .containers();
+      width: inherit;
+      .search__inner {
+        .containers(@flexDirection: row);
+        width: 100%;
+        .search__label {
+          .containers(@flexDirection: row);
+          color: @brown;
+          width: auto;
+          white-space: nowrap;
+          min-width: 60%;
+          .label__input {
+            color: @brown;
+            background: @peach;
+            width: 70%;
+            padding: 0.5rem;
+            margin: 0.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            &:focus {
+              color: @yellow;
+              background: @brown;
+            }
+          }
+        }
+      }
+      .search__error {
+        margin-top: 2rem;
+        min-height: 2rem;
+        font-size: 1 rem;
+        color: red;
+      }
+      .search__button {
+        .containers();
+        .shadow();
+        .shadowHover();
+        margin: 0 1rem;
+        background: @dark;
+        border-radius: 1rem;
+        width: 3vw;
+        max-height: 5vh;
+        padding: 0.5rem;
+        .button__icon {
+          margin: 1rem;
+          color: @peach;
+        }
+        &:focus {
+          outline: 0;
+        }
+      }
+      .button__error-ten {
+        margin: 0 1rem;
+        padding: 0.5rem;
+        width: 3vw;
+      }
+    }
+
+    .section__word {
+      .containers(@flexDirection: row);
+      flex-wrap: wrap;
+      .word__letter {
+        .hover();
+      }
+    }
+    .hidden {
+      display: none;
+    }
+    .show {
+      opacity: 0;
+      animation: showText 1s forwards;
+    }
   }
   .random__section--left {
     left: 19vw;
@@ -28,6 +103,19 @@
   .random__expanded {
     .random__section();
     animation: expand 1s forwards ease-in;
+    &:hover {
+      cursor: default;
+      .shadow();
+    }
+  }
+}
+
+@keyframes showText {
+  from {
+    display: inline-block;
+  }
+  to {
+    opacity: 1;
   }
 }
 
@@ -38,8 +126,8 @@
   }
   100% {
     width: 80vw;
-    height: 60vh;
-    top: 20vh;
+    height: 40vh;
+    top: 30vh;
     left: 9vw;
   }
 }

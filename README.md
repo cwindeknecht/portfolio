@@ -2,6 +2,7 @@
 
 # API's used
 * Github
+* Pexels
 
 # Frontend
 * React
@@ -9,5 +10,7 @@
 
 # Backend
 * MongoDB
+* Express
+* Node
 
 
