@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 
 import "../css/Projects.css";
 
 import { projects } from "../data/data.js";
 
-class Projects extends Component {
+export default class Projects extends Component {
   state = {
     current: 0,
   };
@@ -60,14 +59,3 @@ class Projects extends Component {
     );
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    current: state.current,
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  null,
-)(Projects);

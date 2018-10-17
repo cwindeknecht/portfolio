@@ -25,7 +25,7 @@
   border-bottom-right-radius: 20rem;
 }
 .projects .projects__arrow .arrow__button {
-  box-shadow: 0px 0px 10px 5px #f1e1b0;
+  box-shadow: 0px 0px 10px 5px #111c22;
   margin: 0 1rem;
   background: #111c22;
   border-radius: 1rem;
@@ -33,7 +33,7 @@
 }
 .projects .projects__arrow .arrow__button:hover {
   cursor: pointer;
-  box-shadow: 0px 0px 15px 10px #f1e1b0;
+  box-shadow: 0px 0px 15px 10px #eec49e;
 }
 .projects .projects__arrow .arrow__button .button__icon {
   margin: 1rem;

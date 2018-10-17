@@ -11,14 +11,18 @@
     max-height: 60vh;
     color: @brown;
     background: @brown;
-    border-radius: 5rem;
+    border-radius: 2rem;
     padding: 1rem;
     .form__input {
+      color: @brown;
       background: @peach;
       width: 40vw;
       padding: 0.5rem;
       margin: 0.5rem;
+      border-radius: .5rem;
+      font-size: 1rem;
       &:focus {
+        color: @dark;
         background: @yellow;
       }
     }
@@ -30,14 +34,17 @@
         width: 19.5vw;
       }
     }
-
     .form__textarea {
+      font-size: 1.2rem;
       width: 40vw;
       height: 15vh;
       padding: 0.5rem;
       margin: 0.5rem;
+      color: @brown;
       background: @peach;
+      border-radius: .5rem;
       &:focus {
+        color: @dark;
         background: @yellow;
       }
     }
@@ -87,6 +94,41 @@
       .form__button();
       border-top-left-radius: 0;
       border-top-right-radius: 0;
+    }
+  }
+  .contact--done {
+    .containers(@justifyContent: space-around);
+    height: 100vh;
+    min-width: 40vw;
+    max-width: 40vw;
+    min-height: 30vh;
+    max-height: 30vh;
+    color: @yellow;
+    background: @brown;
+    border-radius: 2rem;
+    padding: 1rem;
+    .contact--done__title {
+      width: 80%;
+    }
+    .contact--done__buttons {
+      .containers(@flexDirection: row);
+      width: 80%;
+      .buttons__title {
+        margin: 1rem;
+      }
+      .buttons__button {
+        margin: 1rem;
+        background: @grey;
+        border-radius: 1rem;
+        min-height: 5vh;
+        min-width: 5vw;
+        font-size: 1.2rem;
+        .shadow();
+        .shadowHover();
+        &:hover {
+          color: @peach;
+        }
+      }
     }
   }
 }

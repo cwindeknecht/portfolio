@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import Home from "../components/Home";
@@ -8,7 +7,7 @@ import Projects from "../components/Projects";
 
 import "../css/Header.css";
 
-class Header extends Component {
+export default class Header extends Component {
   state = {
     current: "Home",
     open: false,
@@ -64,6 +63,10 @@ class Header extends Component {
     this.handleDropdown(false);
   };
 
+  setHeader = (current) => {
+    this.setState({current})
+  }
+
   render() {
     let { current } = this.state;
     return (
@@ -108,22 +111,11 @@ class Header extends Component {
               <i style={{ color: "#f1e1b0" }} className="fab fa-github fa-2x" />
             </a>
           </div>
-          <Route exact path="/" component={Home} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/projects" component={Projects} />
+          <Route exact path="/" render={() => <Home setHeader={this.setHeader} />} />
+          <Route path="/contact" render={() => <Contact setHeader={this.setHeader} />} />
+          <Route path="/projects" render={() => <Projects setHeader={this.setHeader} />} />
         </div>
       </Router>
     );
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    current: state.current,
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  null,
-)(Header);
