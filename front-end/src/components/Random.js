@@ -9,14 +9,20 @@ export default class Random extends Component {
   };
 
   expand = event => {
+    let { pexels, guess } = this.state;
+    //   Cheap way to remove event handler as none of the examples I found worked
+    if (pexels || guess) return;
+
     let { id } = event.target;
-    let hide = document.getElementById(id === "pexels" ? "guess" : "pexels");
+    let hideId = id === "pexels" ? "guess" : "pexels";
+    let expand = document.getElementById(id);
+    let hide = document.getElementById(hideId);
     hide.classList.add("random__section--hidden");
     setTimeout(() => {
       document.getElementById("container").removeChild(hide);
-      document.getElementById(id).classList.add("random__expanded");
+      expand.classList.add("random__expanded");
     }, 1000);
-    this.setState({ [event.target.id]: true });
+    this.setState({ id: true, hideId: false });
   };
 
   render() {
