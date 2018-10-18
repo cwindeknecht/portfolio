@@ -361,8 +361,8 @@ export default class Random extends Component {
                     correct[selectedType.type] || !correct[selectedType.type]
                       ? correct[selectedType.type]
                         ? "questions__correct"
-                        : "questions__incorrect"
-                      : "questions__incorrect--empty"
+                        : "questions__incorrect--empty"
+                      : "questions__incorrect"
                   }>
                   {showAnswer || guessed ? (correct[selectedType.type] ? "Correct" : "Incorrect") : ""}
                 </div>
