@@ -590,7 +590,9 @@
 }
 .random .random__expanded--guess .expanded-guess__radios .radios__questions .questions__hint {
   padding: 0.5rem;
-  min-height: 4rem;
+}
+.random .random__expanded--guess .expanded-guess__radios .radios__questions .questions__hint:hover {
+  cursor: pointer;
 }
 .random .random__expanded--guess .expanded-guess__radios .radios__questions .questions__button {
   box-shadow: 0px 5px 10px 0px #424652;
@@ -624,6 +626,7 @@
 }
 .random .random__expanded--guess .expanded-guess__radios .radios__questions .questions__incorrect {
   margin-top: 0.5rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 1rem;
   background: #eec49e;
 }
@@ -638,6 +641,7 @@
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 1rem;
   overflow-x: auto;
+  overflow-y: hidden;
   width: inherit;
   background: #eec49e;
   border-top-left-radius: 1rem;
@@ -647,7 +651,6 @@
   width: auto;
   min-width: 25%;
   max-width: 50%;
-  margin: 1rem;
   text-align: center;
 }
 @keyframes showText {
