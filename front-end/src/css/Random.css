@@ -7,7 +7,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   box-shadow: 0px 0px 10px 5px #424652;
   position: absolute;
   height: 20vh;
@@ -31,7 +31,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   width: inherit;
 }
 .random .random__section .section__search .search__inner {
@@ -40,7 +40,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   width: 100%;
 }
 .random .random__section .section__search .search__inner .search__label {
@@ -49,7 +49,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #786352;
   width: auto;
   white-space: nowrap;
@@ -81,7 +81,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   box-shadow: 0px 0px 10px 5px #424652;
   margin: 0 1rem;
   background: #111c22;
@@ -112,7 +112,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   flex-wrap: wrap;
 }
 .random .random__section .section__word .word__letter:hover {
@@ -127,7 +127,7 @@
   animation: showText 2s forwards;
 }
 .random .random__section--left {
-  left: 19vw;
+  left: 29vw;
 }
 .random .random__section--right {
   left: 51vw;
@@ -138,7 +138,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   box-shadow: 0px 0px 10px 5px #424652;
   position: absolute;
   height: 20vh;
@@ -163,7 +163,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   width: inherit;
 }
 .random .random__section--hidden .section__search .search__inner {
@@ -172,7 +172,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   width: 100%;
 }
 .random .random__section--hidden .section__search .search__inner .search__label {
@@ -181,7 +181,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #786352;
   width: auto;
   white-space: nowrap;
@@ -213,7 +213,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   box-shadow: 0px 0px 10px 5px #424652;
   margin: 0 1rem;
   background: #111c22;
@@ -244,7 +244,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   flex-wrap: wrap;
 }
 .random .random__section--hidden .section__word .word__letter:hover {
@@ -264,7 +264,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   box-shadow: 0px 0px 10px 5px #424652;
   position: absolute;
   height: 20vh;
@@ -289,7 +289,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   width: inherit;
 }
 .random .random__expanded .section__search .search__inner {
@@ -298,7 +298,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   width: 100%;
 }
 .random .random__expanded .section__search .search__inner .search__label {
@@ -307,7 +307,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #786352;
   width: auto;
   white-space: nowrap;
@@ -339,7 +339,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   box-shadow: 0px 0px 10px 5px #424652;
   margin: 0 1rem;
   background: #111c22;
@@ -370,7 +370,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   flex-wrap: wrap;
 }
 .random .random__expanded .section__word .word__letter:hover {
@@ -394,7 +394,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   box-shadow: 0px 0px 10px 5px #424652;
   position: absolute;
   height: 20vh;
@@ -423,7 +423,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   width: inherit;
 }
 .random .random__expanded--guess .section__search .search__inner {
@@ -432,7 +432,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   width: 100%;
 }
 .random .random__expanded--guess .section__search .search__inner .search__label {
@@ -441,7 +441,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #786352;
   width: auto;
   white-space: nowrap;
@@ -473,7 +473,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   box-shadow: 0px 0px 10px 5px #424652;
   margin: 0 1rem;
   background: #111c22;
@@ -504,7 +504,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   flex-wrap: wrap;
 }
 .random .random__expanded--guess .section__word .word__letter:hover {
@@ -528,7 +528,7 @@
   justify-content: space-between;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   width: 100%;
   align-items: flex-start;
   opacity: 0;
@@ -541,7 +541,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 .random .random__expanded--guess .expanded-guess__radios .radios__list .list__title {
   background: #eec49e;
@@ -556,8 +556,7 @@
   min-width: 50%;
 }
 .random .random__expanded--guess .expanded-guess__radios .radios__list .list__radio .radio__button {
-  min-width: 1rem;
-  min-height: 1rem;
+  margin: 0 0.2rem;
 }
 .random .random__expanded--guess .expanded-guess__radios .radios__questions {
   display: flex;
@@ -565,7 +564,7 @@
   justify-content: flex-start;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   width: 60%;
   padding: 1rem;
 }
@@ -627,7 +626,9 @@
   margin-top: 0.5rem;
   border-radius: 1rem;
   background: #eec49e;
-  padding: 0.5rem;
+}
+.random .random__expanded--guess .expanded-guess__radios .radios__questions .questions__incorrect--empty {
+  visibility: hidden;
 }
 .random .random__expanded--guess .expanded-guess__radios .radios__questions .questions__choices {
   display: flex;
@@ -635,7 +636,7 @@
   justify-content: space-between;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   overflow-x: auto;
   width: inherit;
   background: #eec49e;
@@ -681,4 +682,21 @@
     height: 5vh;
     width: 15vw;
   }
+}
+::-webkit-scrollbar {
+  width: 1rem;
+}
+::-webkit-scrollbar-track {
+  -webkit-border-radius: 0.5rem;
+  border-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  background: #424652;
+}
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 0.5rem;
+  border-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  background: #786352;
 }

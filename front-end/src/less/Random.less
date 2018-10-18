@@ -91,7 +91,7 @@
     }
   }
   .random__section--left {
-    left: 19vw;
+    left: 29vw;
   }
   .random__section--right {
     left: 51vw;
@@ -135,8 +135,7 @@
           padding: 0.25rem;
           min-width: 50%;
           .radio__button {
-            min-width: 1rem;
-            min-height: 1rem;
+            margin: 0 0.2rem;
           }
         }
       }
@@ -189,17 +188,19 @@
           }
         }
         .questions__correct {
-          margin-top: .5rem;
+          margin-top: 0.5rem;
           border-top-left-radius: 1rem;
           border-top-right-radius: 1rem;
           background: @peach;
-          padding: .5rem .5rem 0 .5rem;
+          padding: 0.5rem 0.5rem 0 0.5rem;
         }
         .questions__incorrect {
-          margin-top: .5rem;
+          margin-top: 0.5rem;
           border-radius: 1rem;
           background: @peach;
-          padding: .5rem;
+        }
+        .questions__incorrect--empty {
+          visibility: hidden;
         }
         .questions__choices {
           .containers(@flexDirection: row, @justifyContent: space-between);
@@ -256,4 +257,24 @@
     height: 5vh;
     width: 15vw;
   }
+}
+
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-border-radius: 0.5rem;
+  border-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  background: @grey;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 0.5rem;
+  border-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  background: @brown;
 }
