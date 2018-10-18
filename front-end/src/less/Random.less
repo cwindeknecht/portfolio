@@ -7,13 +7,13 @@
     .shadow();
     .shadowHover();
     position: absolute;
-    height: 30vh;
-    width: 30vw;
+    height: 20vh;
+    width: 20vw;
     background: @yellow;
     color: @grey;
     border: 1rem solid @brown;
     border-radius: 1rem;
-    top: 40vh;
+    top: 45vh;
     .section__title {
       color: @brown;
     }
@@ -38,6 +38,7 @@
             border-radius: 0.5rem;
             font-size: 1rem;
             &:focus {
+              outline: none;
               color: @yellow;
               background: @brown;
             }
@@ -74,7 +75,6 @@
         width: 3vw;
       }
     }
-
     .section__word {
       .containers(@flexDirection: row);
       flex-wrap: wrap;
@@ -87,7 +87,7 @@
     }
     .show {
       opacity: 0;
-      animation: showText 1s forwards;
+      animation: showText 2s forwards;
     }
   }
   .random__section--left {
@@ -108,6 +108,118 @@
       .shadow();
     }
   }
+  .random__expanded--guess {
+    .random__expanded();
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 80vw;
+    height: 40vh;
+    .expanded-guess__radios {
+      .containers(@flexDirection: row, @justifyContent: space-between);
+      width: 100%;
+      align-items: flex-start;
+      opacity: 0;
+      .radios__list {
+        padding: 1rem;
+        width: 30%;
+        .containers();
+        .list__title {
+          background: @peach;
+          color: @brown;
+          border-radius: 0.5rem;
+          text-align: center;
+          padding: 0.25rem 0;
+          min-width: 50%;
+        }
+        .list__radio {
+          padding: 0.25rem;
+          min-width: 50%;
+          .radio__button {
+            min-width: 1rem;
+            min-height: 1rem;
+          }
+        }
+      }
+      .radios__questions {
+        .containers(@justifyContent: flex-start);
+        width: 60%;
+        padding: 1rem;
+        .questions__question {
+          padding: 0.25rem;
+          background: @brown;
+          color: @peach;
+          border-radius: 0.5rem;
+        }
+        .question__input {
+          color: @brown;
+          background: @peach;
+          width: 50%;
+          padding: 0.5rem;
+          margin: 0.5rem;
+          border-radius: 0.5rem;
+          font-size: 1rem;
+          &:focus {
+            outline: none;
+            color: @peach;
+            background: @grey;
+          }
+        }
+        .questions__hint {
+          padding: 0.5rem;
+          min-height: 4rem;
+        }
+        .questions__button {
+          .shadow(@y: 5px, @blur: 10px, @spread: 0px);
+          .shadowHover(@y: 5px, @blur: 10px, @spread: 5px);
+          margin: 0 1rem;
+          border-radius: 1rem;
+          min-height: 3vh;
+          min-width: 20%;
+          background: @grey;
+          color: @peach;
+          .button__icon {
+            margin: 1rem;
+            color: @peach;
+          }
+          &:hover {
+            color: @yellow;
+          }
+          &:focus {
+            outline: 0;
+          }
+        }
+        .questions__correct {
+          margin-top: .5rem;
+          border-top-left-radius: 1rem;
+          border-top-right-radius: 1rem;
+          background: @peach;
+          padding: .5rem .5rem 0 .5rem;
+        }
+        .questions__incorrect {
+          margin-top: .5rem;
+          border-radius: 1rem;
+          background: @peach;
+          padding: .5rem;
+        }
+        .questions__choices {
+          .containers(@flexDirection: row, @justifyContent: space-between);
+          overflow-x: auto;
+          width: inherit;
+          background: @peach;
+          border-top-left-radius: 1rem;
+          border-top-right-radius: 1rem;
+          .choices__choice {
+            width: auto;
+            min-width: 25%;
+            max-width: 50%;
+            margin: 1rem;
+            text-align: center;
+            // white-space: nowrap;
+          }
+        }
+      }
+    }
+  }
 }
 
 @keyframes showText {
@@ -121,8 +233,8 @@
 
 @keyframes expand {
   0% {
-    width: 30vw;
-    height: 30vh;
+    width: 20vw;
+    height: 20vh;
   }
   100% {
     width: 80vw;
@@ -134,13 +246,14 @@
 
 @keyframes hide {
   0% {
-    height: 30vh;
-    width: 30vw;
+    height: 20vh;
+    width: 20vw;
+    overflow: hidden;
+    white-space: nowrap;
   }
   100% {
-    opacity: 0.1;
-    height: 10vh;
-    width: 10vw;
-    visibility: hidden;
+    opacity: 0;
+    height: 5vh;
+    width: 15vw;
   }
 }

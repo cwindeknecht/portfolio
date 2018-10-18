@@ -5,17 +5,31 @@ import "../css/Random.css";
 
 let backend = process.env.REACT_APP_BACKEND || process.env.HEROKU_BACKEND;
 
-// This class turned ugly / large.  Definetly needs to be refactored and 
+// This class turned ugly / large.  Definetly needs to be refactored and
 // pieced out to various components.
 export default class Random extends Component {
   state = {
     search: "",
     submitted: false,
-    pexels: false,
     photos: [],
     error: false,
     errorMessage: "",
     errorTen: false,
+    types: [],
+    selectedRadio: "Choose",
+    guess: false,
+    pexels: false,
+    answer: "",
+    showHint: false,
+    showAnswer: false,
+    correct: {},
+    numberCorrect: 0,
+    hintsUsed: 0,
+    guessed: false,
+  };
+
+  componentDidMount = () => {
+    this.getTypes();
   };
 
   expand = event => {
@@ -32,7 +46,7 @@ export default class Random extends Component {
     // Hide Title, Expand Choice
     setTimeout(() => {
       document.getElementById("container").removeChild(hide);
-      expand.classList.add("random__expanded");
+      expand.classList.add(id === "guess" ? "random__expanded--guess" : "random__expanded");
       expand.firstChild.classList.add("hidden");
     }, 1000);
     // Show the hidden element
@@ -148,8 +162,86 @@ export default class Random extends Component {
     element.onclick = this.getPicture.bind(this, url);
   };
 
+  getTypes = () => {
+    axios
+      .get(`${backend}/types`)
+      .then(results => {
+        this.setState({ types: results.data });
+      })
+      .catch(error => {
+        console.log("Error", error);
+      });
+  };
+
+  handleRadioChange = type => {
+    this.setState({
+      selectedRadio: type.type,
+      selectedType: type,
+      showHint: false,
+      showAnswer: false,
+      answer: "",
+      guessed: false,
+    });
+  };
+
+  // Eventually have a hints counter
+  handleHint = (type, showHint) => {
+    let { hintsUsed } = this.state;
+    hintsUsed++;
+    this.setState({ hintsUsed, showHint: !showHint });
+  };
+
+  // Eventually have a guess counter
+  // An object that only lets them guess 3 times per question
+  // Need to work on Lambda / Python stuff
+  // This is done enough for the time being
+  handleGuess = (type, event) => {
+    event.preventDefault();
+    let { answer, selectedType } = this.state;
+    axios
+      .get(`${backend}/guess/${type}`)
+      .then(response => {
+        let results = response.data.choice.filter(choice => {
+          choice = choice.toLowerCase();
+          answer = answer.toLowerCase();
+          return answer === choice;
+        });
+        // Put the answers on the selected type
+        selectedType.choice = response.data.choice;
+        this.setState({ selectedType });
+
+        // Handle whether or not incorrect/correct & answers shown
+        this.handleCorrect(type, results.length ? true : false);
+      })
+      .catch(error => {
+        console.log("Error", error);
+      });
+  };
+
+  // Call if the answer is correct
+  handleCorrect = (type, bool) => {
+    let { correct } = this.state;
+    bool ? (correct[type] = true) : (correct[type] = false);
+    bool ? this.setState({ correct, showAnswer: true }) : this.setState({ guessed: true, correct, showAnswer: false });
+  };
+
   render() {
-    let { guess, search, submitted, error, errorMessage, errorTen, boring } = this.state;
+    let {
+      search,
+      submitted,
+      error,
+      errorMessage,
+      errorTen,
+      boring,
+      types,
+      selectedRadio,
+      selectedType,
+      showHint,
+      showAnswer,
+      correct,
+      answer,
+      guessed,
+    } = this.state;
     return (
       <div id="container" className="random">
         <div id="pexels" className="random__section random__section--left" onClick={this.expand}>
@@ -215,8 +307,72 @@ export default class Random extends Component {
           ) : null}
         </div>
         <div id="guess" className="random__section random__section--right" onClick={this.expand}>
-          <div className="section__title">Guessing Game</div>
-          {guess ? <div className="section__game" /> : null}
+          {/* Wierd occurrence if you click on the title it would not return an id
+            Probably not the ideal solution, but a quick fix nonetheless
+            Better alternative would be to get by classnames left/right */}
+          <div id="guess" className="section__title">
+            Guess Some Stuff and Junk
+          </div>
+          <form id="form" className="expanded-guess__radios hidden">
+            <div className="radios__list">
+              <div className="list__title">{selectedRadio}</div>
+              {types.map(type => {
+                return (
+                  <div
+                    className="list__radio"
+                    id={type}
+                    key={type._id}
+                    onChange={this.handleRadioChange.bind(this, type)}>
+                    <input
+                      className="radio__button"
+                      type="radio"
+                      id={type}
+                      checked={selectedRadio === type.type}
+                      onChange={this.handleRadioChange.bind(this, type)}
+                    />
+                    {type.type}
+                  </div>
+                );
+              })}
+            </div>
+            {/* I realize after the fact that radios wasn't the most accurate block name*/}
+            {selectedType ? (
+              <div className="radios__questions">
+                <div className="questions__question">{selectedType.question}</div>
+                <input
+                  name="answer"
+                  value={answer}
+                  className="question__input"
+                  placeholder="Guess..."
+                  onChange={this.handleInput}
+                />
+                {showHint ? (
+                  <div className="questions__hint">{selectedType.hint}</div>
+                ) : (
+                  <div className="questions__hint" onClick={this.handleHint.bind(this, selectedType.type, showHint)}>
+                    Hint
+                  </div>
+                )}
+                <button className="questions__button" onClick={this.handleGuess.bind(this, selectedType.type)}>
+                  Guess
+                </button>
+                <div className={correct[selectedType.type] ? "questions__correct" : "questions__incorrect"}>
+                  {showAnswer || guessed ? (correct[selectedType.type] ? "Correct" : "Incorrect") : ""}
+                </div>
+                <div className="questions__choices">
+                {showAnswer
+                  ? selectedType.choice.map(choice => {
+                      return (
+                        <div className="choices__choice" key={choice}>
+                          {choice}
+                        </div>
+                      );
+                    })
+                  : null}
+                  </div>
+              </div>
+            ) : null}
+          </form>
         </div>
       </div>
     );
