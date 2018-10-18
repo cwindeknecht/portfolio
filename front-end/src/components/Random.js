@@ -356,20 +356,27 @@ export default class Random extends Component {
                 <button className="questions__button" onClick={this.handleGuess.bind(this, selectedType.type)}>
                   Guess
                 </button>
-                <div className={correct[selectedType.type] ? "questions__correct" : "questions__incorrect"}>
+                <div
+                  className={
+                    correct[selectedType.type] || !correct[selectedType.type]
+                      ? correct[selectedType.type]
+                        ? "questions__correct"
+                        : "questions__incorrect"
+                      : "questions__incorrect--empty"
+                  }>
                   {showAnswer || guessed ? (correct[selectedType.type] ? "Correct" : "Incorrect") : ""}
                 </div>
                 <div className="questions__choices">
-                {showAnswer
-                  ? selectedType.choice.map(choice => {
-                      return (
-                        <div className="choices__choice" key={choice}>
-                          {choice}
-                        </div>
-                      );
-                    })
-                  : null}
-                  </div>
+                  {showAnswer
+                    ? selectedType.choice.map(choice => {
+                        return (
+                          <div className="choices__choice" key={choice}>
+                            {choice}
+                          </div>
+                        );
+                      })
+                    : null}
+                </div>
               </div>
             ) : null}
           </form>

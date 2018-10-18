@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-top: 10vh;
 }
 .home .home__packages {
@@ -13,7 +13,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   background: #f1e1b0;
   border-bottom-left-radius: 20rem;
   border-bottom-right-radius: 20rem;
@@ -28,7 +28,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   background: #111c22;
   border-radius: 5rem;
 }
@@ -73,7 +73,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   background: #786352;
   border-bottom-left-radius: 20rem;
   border-bottom-right-radius: 20rem;
@@ -104,7 +104,7 @@
   justify-content: flex-end;
   align-items: flex-start;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   min-width: 80vw;
 }
 .home .home__home .home__dude {
@@ -122,7 +122,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin: 1vh 5vw 30vh 1vw;
   padding: 1rem;
   width: 55vw;
@@ -165,7 +165,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   position: relative;
   top: 55vh;
   background: #f1e1b0;
@@ -184,7 +184,7 @@
   justify-content: space-between;
   align-items: flex-start;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding: 1rem;
   width: 30%;
   border-right: 1rem solid #111c22;
@@ -199,7 +199,7 @@
   justify-content: center;
   align-items: flex-start;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 .home .home__done .done__section .section__text .text__segment {
   padding: 0.5rem;
