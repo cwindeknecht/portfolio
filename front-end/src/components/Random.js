@@ -358,11 +358,11 @@ export default class Random extends Component {
                 </button>
                 <div
                   className={
-                    correct[selectedType.type] || !correct[selectedType.type]
+                    guessed
                       ? correct[selectedType.type]
                         ? "questions__correct"
-                        : "questions__incorrect--empty"
-                      : "questions__incorrect"
+                        : "questions__incorrect"
+                      : "questions__incorrect--empty"
                   }>
                   {showAnswer || guessed ? (correct[selectedType.type] ? "Correct" : "Incorrect") : ""}
                 </div>
