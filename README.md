@@ -7,8 +7,7 @@ The styling, for the time being, is only compliant with my laptop and those of s
 There is a security flaw (see miscellaneous below) and not everything is perfect, but it is getting there.  This is just the first iteration, and at the time of readme being updated, it was finished in just under a week (10/12/18 - 10/16/18).
 
 ## Deployed Links
-Netlify: 
-Heroku: 
+Netlify: https://cwindeknecht.netlify.com/
 
 ## API's used
 * Github
