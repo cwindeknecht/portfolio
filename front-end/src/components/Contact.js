@@ -6,7 +6,7 @@ import Home from "./Home";
 
 import "../css/Contact.css";
 
-let backend = process.env.REACT_APP_BACKEND || process.env.HEROKU_BACKEND;
+let backend = process.env.HEROKU_BACKEND;
 
 export default class Contact extends Component {
   state = {

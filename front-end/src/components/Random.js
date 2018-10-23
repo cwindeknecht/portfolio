@@ -3,9 +3,7 @@ import axios from "axios";
 
 import "../css/Random.css";
 
-let backend = process.env.REACT_APP_BACKEND || process.env.HEROKU_BACKEND;
-
-console.log("backend", process.env)
+let backend = process.env.HEROKU_BACKEND;
 
 // This class turned ugly / large.  Definetly needs to be refactored and
 // pieced out to various components.
