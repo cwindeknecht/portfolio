@@ -6,7 +6,7 @@ import Home from "./Home";
 
 import "../css/Contact.css";
 
-let backend = "https://guarded-dusk-21181.herokuapp.com/";
+let backend = "https://guarded-dusk-21181.herokuapp.com";
 
 export default class Contact extends Component {
   state = {

@@ -3,7 +3,7 @@ import axios from "axios";
 
 import "../css/Random.css";
 
-let backend = "https://guarded-dusk-21181.herokuapp.com/";
+let backend = "https://guarded-dusk-21181.herokuapp.com";
 
 // This class turned ugly / large.  Definetly needs to be refactored and
 // pieced out to various components.
