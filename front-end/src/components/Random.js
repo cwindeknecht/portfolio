@@ -5,6 +5,9 @@ import "../css/Random.css";
 
 let backend = process.env.HEROKU_BACKEND;
 
+console.log("BACKEND", backend);
+console.log("HEROKU", process.env);
+
 // This class turned ugly / large.  Definetly needs to be refactored and
 // pieced out to various components.
 export default class Random extends Component {
