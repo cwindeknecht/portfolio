@@ -3,14 +3,8 @@ import axios from "axios";
 
 import "../css/Random.css";
 
-let backend = process.env.HEROKU_BACKEND;
+let backend = "https://guarded-dusk-21181.herokuapp.com/";
 
-<<<<<<< HEAD
-console.log("BACKEND", backend);
-console.log("HEROKU", process.env);
-
-=======
->>>>>>> 261dc0a0b3216829263b1ec2df074f51487316a4
 // This class turned ugly / large.  Definetly needs to be refactored and
 // pieced out to various components.
 export default class Random extends Component {
