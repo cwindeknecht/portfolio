@@ -1,6 +1,6 @@
 const PexelsAPI = require("pexels-api-wrapper");
 
-var pexelsClient = new PexelsAPI(process.env.REACT_APP_PEXELS || process.env.HEROKU_PEXELS);
+var pexelsClient = new PexelsAPI(process.env.HEROKU_PEXELS);
 
 const getPictures = (req, res) => {
   pexelsClient
