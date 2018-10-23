@@ -11,8 +11,8 @@ const server = express();
 server.use(express.json());
 server.use(cors(corsOptions));
 
-let user = process.env.REACT_APP_MLABUSER || process.env.HEROKU_MLABUSER;
-let password = process.env.REACT_APP_MLABPASS || process.env.HEROKU_MLABPASS;
+let user = process.env.HEROKU_MLABUSER;
+let password = process.env.HEROKU_MLABPASS;
 
 mongoose
   .connect(
