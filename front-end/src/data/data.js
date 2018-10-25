@@ -51,7 +51,7 @@ export const packages = [
 
 export const projects = [
   {
-    name: "True Business",
+    name: "Real Business",
     git: "https://github.com/Lambda-School-Labs/CS10-business-review",
     deployed: "https://www.realbusinessreviews.net/",
     description: [

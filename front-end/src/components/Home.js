@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import DownOpen from "../img/DownOpen.png";
-import DownShut from "../img/DownShut.png";
-import DownSmile from "../img/DownSmile.png";
-import LeftOpen from "../img/LeftOpen.png";
-import LeftShut from "../img/LeftShut.png";
-import LeftSmile from "../img/LeftSmile.png";
-import RightOpen from "../img/RightOpen.png";
-import RightShut from "../img/RightShut.png";
-import RightSmile from "../img/RightSmile.png";
+// import DownOpen from "../img/DownOpen.png";
+// import DownShut from "../img/DownShut.png";
+// import DownSmile from "../img/DownSmile.png";
+// import LeftOpen from "../img/LeftOpen.png";
+// import LeftShut from "../img/LeftShut.png";
+// import LeftSmile from "../img/LeftSmile.png";
+// import RightOpen from "../img/RightOpen.png";
+// import RightShut from "../img/RightShut.png";
+// import RightSmile from "../img/RightSmile.png";
 
 import { packages } from "../data/data";
 
@@ -29,17 +29,19 @@ export default class Home extends Component {
   componentDidMount = () => {
     this.getImages();
     this.determineStartEnd();
-    this.getMessages();
-    this.enterDude();
+    // Remove this if animation isn't deemed a red flag like it feels may be the case
+    this.setState({done: true})
+    // this.getMessages();
+    // this.enterDude();
   };
 
   componentDidUpdate = (prevProps, prevState) => {
     if (prevState.carousel !== this.state.carousel) {
       this.determineStartEnd();
     }
-    if (prevState.current !== this.state.current) {
-      this.getDude();
-    }
+    // if (prevState.current !== this.state.current) {
+    //   this.getDude();
+    // }
   };
 
   componentWillUnmount = () => {
@@ -102,97 +104,97 @@ export default class Home extends Component {
     }
   };
 
-  getMessages = () => {
-    let { current, clear } = this.state;
-    const messages = [
-      "Hey, I'm pretty creepy right?  Yeah, I'm no artist... But I had an idea and I went with it.",
-      "Anywho... Hello!  Welcome to my portfolio website.  Have a look around.  Learn a bit about me.",
-      "Above you can see some of the frameworks and languages of which I am familiar.",
-      "If you click on the navigation button at the top left of the screen, you can check out my other pages.",
-      "The top right has my Github and LinkedIn profiles if that sort of thing interests you.",
-      "Maybe you will even contact me and let me know what you think?  I think you should.",
-    ];
-    const change = () => {
-      if (document.getElementById("welcome")) {
-        document.getElementById("welcome").className = current % 2 === 1 ? "welcome__text" : "welcome__text--alt";
-        this.setState({ currentMessage: messages[current], current: ++current, clear });
-        if (current > messages.length - 1) {
-          clearInterval(message);
-          this.leaveDude();
-          this.setState({ currentMessage: "Well, I'm leaving now, I'll stop creepin' you out.  Bye bye." });
-          setTimeout(() => {
-            let messages = document.getElementById("messages");
-            while (messages.firstChild) {
-              messages.removeChild(messages.firstChild);
-            }
-            this.setState({ done: true });
-          }, 5000);
-        }
-      }
-    };
-    const message = setInterval(change, 7000);
-    clear.push(message);
-  };
+  // getMessages = () => {
+  //   let { current, clear } = this.state;
+  //   const messages = [
+  //     "Hey, I'm pretty creepy right?  Yeah, I'm no artist... But I had an idea and I went with it.",
+  //     "Anywho... Hello!  Welcome to my portfolio website.  Have a look around.  Learn a bit about me.",
+  //     "Above you can see some of the frameworks and languages of which I am familiar.",
+  //     "If you click on the navigation button at the top left of the screen, you can check out my other pages.",
+  //     "The top right has my Github and LinkedIn profiles if that sort of thing interests you.",
+  //     "Maybe you will even contact me and let me know what you think?  I think you should.",
+  //   ];
+  //   const change = () => {
+  //     if (document.getElementById("welcome")) {
+  //       document.getElementById("welcome").className = current % 2 === 1 ? "welcome__text" : "welcome__text--alt";
+  //       this.setState({ currentMessage: messages[current], current: ++current, clear });
+  //       if (current > messages.length - 1) {
+  //         clearInterval(message);
+  //         this.leaveDude();
+  //         this.setState({ currentMessage: "Well, I'm leaving now, I'll stop creepin' you out.  Bye bye." });
+  //         setTimeout(() => {
+  //           let messages = document.getElementById("messages");
+  //           while (messages.firstChild) {
+  //             messages.removeChild(messages.firstChild);
+  //           }
+  //           this.setState({ done: true });
+  //         }, 5000);
+  //       }
+  //     }
+  //   };
+  //   const message = setInterval(change, 7000);
+  //   clear.push(message);
+  // };
 
-  getDude = () => {
-    let down = [DownOpen, DownShut, DownSmile];
-    let left = [LeftOpen, LeftShut, LeftSmile];
-    let right = [RightOpen, RightShut, RightSmile];
-    switch (this.state.current) {
-      case 0:
-      case 1:
-      case 2:
-      case 3:
-      case 6:
-        this.dude(down);
-        break;
-      case 4:
-        this.dude(left);
-        break;
-      default:
-        this.dude(right);
-    }
-  };
+  // getDude = () => {
+  //   let down = [DownOpen, DownShut, DownSmile];
+  //   let left = [LeftOpen, LeftShut, LeftSmile];
+  //   let right = [RightOpen, RightShut, RightSmile];
+  //   switch (this.state.current) {
+  //     case 0:
+  //     case 1:
+  //     case 2:
+  //     case 3:
+  //     case 6:
+  //       this.dude(down);
+  //       break;
+  //     case 4:
+  //       this.dude(left);
+  //       break;
+  //     default:
+  //       this.dude(right);
+  //   }
+  // };
 
-  dude = images => {
-    let { clear } = this.state;
-    let i = 0;
-    let talk = () => {
-      let img = document.getElementById("dude");
-      if (img) img.src = images[i % 2 === 1 ? 0 : 1];
-      i++;
-      if (i === 21) {
-        clearInterval(speech);
-      }
-    };
-    let smile = () => {
-      let img = document.getElementById("dude");
-      if (img) img.src = images[2];
-      clearInterval(creepy);
-    };
-    let speech = setInterval(talk, 150);
-    let creepy = setInterval(smile, 6000);
-    clear.push(speech);
-    clear.push(creepy);
-    this.setState({ clear });
-  };
+  // dude = images => {
+  //   let { clear } = this.state;
+  //   let i = 0;
+  //   let talk = () => {
+  //     let img = document.getElementById("dude");
+  //     if (img) img.src = images[i % 2 === 1 ? 0 : 1];
+  //     i++;
+  //     if (i === 21) {
+  //       clearInterval(speech);
+  //     }
+  //   };
+  //   let smile = () => {
+  //     let img = document.getElementById("dude");
+  //     if (img) img.src = images[2];
+  //     clearInterval(creepy);
+  //   };
+  //   let speech = setInterval(talk, 150);
+  //   let creepy = setInterval(smile, 6000);
+  //   clear.push(speech);
+  //   clear.push(creepy);
+  //   this.setState({ clear });
+  // };
 
-  // DRY, I know... probably as simple as setting a bool on state
-  leaveDude = () => {
-    this.dude([DownOpen, DownShut, DownSmile]);
-    let img = document.getElementById("dude");
-    if (img) img.className = "walk-away";
-  };
+  // // DRY, I know... probably as simple as setting a bool on state
+  // leaveDude = () => {
+  //   this.dude([DownOpen, DownShut, DownSmile]);
+  //   let img = document.getElementById("dude");
+  //   if (img) img.className = "walk-away";
+  // };
 
-  enterDude = () => {
-    this.dude([DownShut, DownShut, DownSmile]);
-    let img = document.getElementById("dude");
-    if (img) img.className = "walk-to";
-  };
+  // enterDude = () => {
+  //   this.dude([DownShut, DownShut, DownSmile]);
+  //   let img = document.getElementById("dude");
+  //   if (img) img.className = "walk-to";
+  // };
 
   render() {
     let pckgs = this.determineStartEnd();
-    let { currentMessage } = this.state;
+    // let { currentMessage } = this.state;
     return (
       <div className="home">
         <div className="home__packages">
@@ -217,14 +219,14 @@ export default class Home extends Component {
             <i className="fas fa-angle-right fa-3x button__icon" />
           </button>
         </div>
-        <div id="messages" className="home__home">
+        {/* <div id="messages" className="home__home">
           <img id="dude" alt="dude" className="home__dude"/>
           <div className="home__welcome">
             <div id="welcome" className="welcome__text">
               {currentMessage}
             </div>
           </div>
-        </div>
+        </div> */}
         {this.state.done ? (
           <div className="home__done">
             <div className="done__section">
@@ -233,15 +235,12 @@ export default class Home extends Component {
             <div className="done__section">
               <div className="section__text">
                 <div className="text__segment">
-                  Hello, my name is Cody Windeknecht. I am a goofy person if that intro didn't make it apparent. More
-                  importantly, I am a recent graduate of Lambda School and a passionate coder. Front-end, back-end, it
-                  is all fun and exciting. Except for the Google Places API.
+                  Hello, my name is Cody Windeknecht. I am a recent graduate of Lambda School and a passionate coder. Front-end, back-end, it is all fun and exciting. Except for the Google Places API.
                 </div>
                 <div className="text__segment">
                   As much as I enjoy web development, I am open and willing to branch out into any variation of coding.
                   Going beyond Lambda's teaching of C and getting a better understanding of languages like C#, C++, and
-                  Java are of high importance to me. Even if I were to do web development for the duration of my life, I
-                  will still make that a high priority.
+                  Java are of high importance to me. 
                 </div>
                 <div className="text__segment">
                   After years in retail management and a degree in Philosophy and English, I am looking for a change of
@@ -250,7 +249,7 @@ export default class Home extends Component {
                   to attend their Master's program. After an enlightening conversation with a professor, I decided to
                   pursue something that was as equally focused on coding as it was on computer science. When I read about
                   Lambda School, I realized how tailor-made it seemed for me. Turns out I still love it at much as I did
-                  when I was younger and want to bring that passion to the world.
+                  when I was younger and I want to bring that passion to the world.
                 </div>
               </div>
             </div>
