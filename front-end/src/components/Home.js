@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React, { Component } from 'react';
+import axios from 'axios';
 
 // import DownOpen from "../img/DownOpen.png";
 // import DownShut from "../img/DownShut.png";
@@ -11,15 +11,17 @@ import axios from "axios";
 // import RightShut from "../img/RightShut.png";
 // import RightSmile from "../img/RightSmile.png";
 
-import { packages } from "../data/data";
+import { packages } from '../data/data';
 
-import "../css/Home.css";
+import '../css/Home.css';
+
+let backend = 'https://guarded-dusk-21181.herokuapp.com';
 
 export default class Home extends Component {
   state = {
     carousel: 2,
     current: 0,
-    currentMessage: "...",
+    currentMessage: '...',
     dude: 0,
     clear: [],
     done: false,
@@ -30,9 +32,11 @@ export default class Home extends Component {
     this.getImages();
     this.determineStartEnd();
     // Remove this if animation isn't deemed a red flag like it feels may be the case
-    this.setState({done: true})
+    this.setState({ done: true });
     // this.getMessages();
     // this.enterDude();
+    // Wake up Backend
+    axios.get(`${backend}/types`);
   };
 
   componentDidUpdate = (prevProps, prevState) => {
@@ -235,21 +239,22 @@ export default class Home extends Component {
             <div className="done__section">
               <div className="section__text">
                 <div className="text__segment">
-                  Hello, my name is Cody Windeknecht. I am a recent graduate of Lambda School and a passionate coder. Front-end, back-end, it is all fun and exciting. Except for the Google Places API.
+                  Hello, my name is Cody Windeknecht. I am a recent graduate of Lambda School and a passionate coder.
+                  Front-end, back-end, it is all fun and exciting. Except for the Google Places API.
                 </div>
                 <div className="text__segment">
                   As much as I enjoy web development, I am open and willing to branch out into any variation of coding.
                   Going beyond Lambda's teaching of C and getting a better understanding of languages like C#, C++, and
-                  Java are of high importance to me. 
+                  Java are of high importance to me.
                 </div>
                 <div className="text__segment">
                   After years in retail management and a degree in Philosophy and English, I am looking for a change of
-                  pace. I loved building websites in my early teens, so I figured I would give it a shot. My initial plan
-                  was the traditional route, so I took the GRE and went to the University of Tennessee at Chattanooga
-                  to attend their Master's program. After an enlightening conversation with a professor, I decided to
-                  pursue something that was as equally focused on coding as it was on computer science. When I read about
-                  Lambda School, I realized how tailor-made it seemed for me. Turns out I still love it at much as I did
-                  when I was younger and I want to bring that passion to the world.
+                  pace. I loved building websites in my early teens, so I figured I would give it a shot. My initial
+                  plan was the traditional route, so I took the GRE and went to the University of Tennessee at
+                  Chattanooga to attend their Master's program. After an enlightening conversation with a professor, I
+                  decided to pursue something that was as equally focused on coding as it was on computer science. When
+                  I read about Lambda School, I realized how tailor-made it seemed for me. Turns out I still love it at
+                  much as I did when I was younger and I want to bring that passion to the world.
                 </div>
               </div>
             </div>

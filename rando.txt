@@ -1,8 +1,0 @@
-random idea for website
-
-favorites that hits a db 
-	model: type: food value: taco
-Have a dropdown of my favorites
-	food
-	music
-	etc.
